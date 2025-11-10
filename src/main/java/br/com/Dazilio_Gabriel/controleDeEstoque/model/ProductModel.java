@@ -10,7 +10,7 @@ public class ProductModel {
     private  String id;
     private  String nome;
     private String descricao;
-    private Integer estoqueAtual; // <-- ADICIONE ESTE
+    private Integer estoqueAtual;
 
     public ProductModel() {
     }
@@ -38,6 +38,13 @@ public class ProductModel {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public Integer getEstoqueAtual() {
+        return estoqueAtual;
+    }
+
+    public void setEstoqueAtual(Integer estoqueAtual) {
+        this.estoqueAtual = estoqueAtual;
+    }
 
     @Override
     public String toString() {
@@ -45,6 +52,7 @@ public class ProductModel {
                 "id='" + id + '\'' +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
+                ", estoqueAtual=" + estoqueAtual + // <-- Adicione isso
                 '}';
     }
 }

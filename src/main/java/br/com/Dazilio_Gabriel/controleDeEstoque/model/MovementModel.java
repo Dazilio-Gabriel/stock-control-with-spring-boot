@@ -50,6 +50,13 @@ public class MovementModel {
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
+    public ProductModel getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductModel product) {
+        this.product = product;
+    }
 
     @Override
     public String toString() {
