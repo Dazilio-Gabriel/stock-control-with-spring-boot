@@ -1,6 +1,7 @@
 package br.com.Dazilio_Gabriel.controleDeEstoque.service;
 
 
+import br.com.Dazilio_Gabriel.controleDeEstoque.model.MovementModel;
 import br.com.Dazilio_Gabriel.controleDeEstoque.model.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -8,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +22,8 @@ public class StockService {
     public StockService(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }
+
+    //Produtos:
 
     public void inserirProdutos(ProductModel produto) {
         this.mongoTemplate.save(produto);
@@ -47,6 +51,34 @@ public class StockService {
 
         this.mongoTemplate.updateFirst(query, update, ProductModel.class);
         System.out.println("produto atualizado: " + dadosNovos.getNome());
+    }
+
+
+    //movimentacoes:
+
+    @Transactional
+    public void inserirMovimentacao(MovementModel mov) {
+
+        this.mongoTemplate.save(mov);
+        System.out.println("movimentacao registrada: " + mov.getTipo());
+
+        String idDoProduto = mov.getProduct().getId();
+        int quantidadeParaMudar = mov.getQuantidade();
+
+        if ("SAIDA".equalsIgnoreCase(mov.getTipo())) {
+            quantidadeParaMudar = -quantidadeParaMudar;
+        }
+
+        Query query = new Query(Criteria.where("id").is(idDoProduto));
+        Update update = new Update().inc("estoqueAtual", quantidadeParaMudar);
+
+        this.mongoTemplate.updateFirst(query, update, ProductModel.class);
+
+        System.out.println("estoque do produto ID " + idDoProduto + " atualizado.");
+    }
+
+    public List<MovementModel> listarTodasAsMovimentacoes() {
+        return this.mongoTemplate.findAll(MovementModel.class);
     }
 
 }
