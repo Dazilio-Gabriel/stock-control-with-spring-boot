@@ -48,15 +48,16 @@ O foco é demonstrar:
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Tecnologia | Finalidade |
-|-------------|-------------|
-| **Java 21** | Linguagem principal |
-| **Spring Boot 3.5.7** | Framework principal |
-| **Spring Data MongoDB** | Integração e persistência no banco MongoDB |
-| **MongoDB** | Banco de dados NoSQL |
-| **Maven** | Gerenciador de dependências |
-| **Lombok** | Simplificação do código (getters/setters automáticos) |
-| **Spring Web** | Exposição de endpoints REST |
-| **Gson** | Serialização/deserialização de dados |
+| Tecnologia              | Finalidade                                            |
+|-------------------------|-------------------------------------------------------|
+| **Java 21**             | Linguagem principal                                   |
+| **Spring Boot 3.5.7**   | Framework principal                                   |
+| **Spring Data MongoDB** | Integração e persistência no banco MongoDB            |
+| **MongoDB**             | Banco de dados NoSQL                                  |
+| **Maven**               | Gerenciador de dependências                           |
+| **Lombok**              | Simplificação do código (getters/setters automáticos) |
+| **Spring Web**          | Exposição de endpoints REST                           |
+| **Gson**                | Serialização/deserialização de dados                  |
+| **Intellij IDE**        | IDE utilizada para fazer o projeto                    |
 
 ---
