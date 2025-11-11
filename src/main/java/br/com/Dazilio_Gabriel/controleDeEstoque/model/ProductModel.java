@@ -7,8 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ProductModel {
 
     @Id
-    private  String id;
-    private  String nome;
+    private String id;
+    private String nome;
     private String descricao;
     private Integer estoqueAtual;
 
@@ -38,6 +38,7 @@ public class ProductModel {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public Integer getEstoqueAtual() {
         return estoqueAtual;
     }
@@ -48,11 +49,7 @@ public class ProductModel {
 
     @Override
     public String toString() {
-        return "ProductModel{" +
-                "id='" + id + '\'' +
-                ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", estoqueAtual=" + estoqueAtual + // <-- Adicione isso
+        return "ProductModel{" + "id='" + id + '\'' + ", nome='" + nome + '\'' + ", descricao='" + descricao + '\'' + ", estoqueAtual=" + estoqueAtual + // <-- Adicione isso
                 '}';
     }
 }

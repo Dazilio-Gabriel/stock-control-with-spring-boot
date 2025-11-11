@@ -3,6 +3,7 @@ package br.com.Dazilio_Gabriel.controleDeEstoque.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDate;
 
 @Document(collection = "movements")
@@ -11,12 +12,13 @@ public class MovementModel {
     @Id
     private String id;
     private LocalDate data;
-    private  String tipo;
-    private  Integer quantidade;
+    private String tipo;
+    private Integer quantidade;
 
-    @DBRef private ProductModel product;
+    @DBRef
+    private ProductModel product;
 
-    public MovementModel(){
+    public MovementModel() {
     }
 
     public String getId() {
@@ -50,6 +52,7 @@ public class MovementModel {
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
+
     public ProductModel getProduct() {
         return product;
     }
@@ -60,13 +63,7 @@ public class MovementModel {
 
     @Override
     public String toString() {
-        return "MovementModel{" +
-                "id='" + id + '\'' +
-                ", data=" + data +
-                ", tipo='" + tipo + '\'' +
-                ", quantidade=" + quantidade +
-                ", product=" + product +
-                '}';
+        return "MovementModel{" + "id='" + id + '\'' + ", data=" + data + ", tipo='" + tipo + '\'' + ", quantidade=" + quantidade + ", product=" + product + '}';
     }
 }
 

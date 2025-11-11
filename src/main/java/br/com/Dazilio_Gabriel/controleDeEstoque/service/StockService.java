@@ -34,6 +34,11 @@ public class StockService {
         return this.mongoTemplate.findAll(ProductModel.class);
     }
 
+    public List<ProductModel>  contarProdutos() {
+        
+        return this.mongoTemplate.count( , ,ProductModel.class);
+    }
+
     public void removerProdutos(String idProduto) {
         Query query = new Query(Criteria.where("id").is(idProduto));
 
@@ -80,5 +85,7 @@ public class StockService {
     public List<MovementModel> listarTodasAsMovimentacoes() {
         return this.mongoTemplate.findAll(MovementModel.class);
     }
+
+
 
 }
