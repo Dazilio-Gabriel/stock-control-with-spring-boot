@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.GroupOperation;
+import br.com.Dazilio_Gabriel.controleDeEstoque.model.MovementTypeReport;
 
 import java.util.List;
 
@@ -96,6 +99,14 @@ public class StockService {
 
     public MovementModel buscarMovimentacaoPorId(String id) {
         return this.mongoTemplate.findById(id, MovementModel.class);
+    }
+
+    public List<MovementTypeReport> gerarRelatorioPorTipo() {
+
+        GroupOperation operation = Aggregation.group("tipo").sum("quantidade").as("totalQuantidade");
+        Aggregation aggregation = Aggregation.newAggregation(operation);
+
+        return this.mongoTemplate.aggregate(aggregation, "movements", MovementTypeReport.class).getMappedResults();
     }
 
 }
