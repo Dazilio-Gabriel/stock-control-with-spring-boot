@@ -139,8 +139,6 @@ Para executar este projeto em um ambiente Linux, você precisará dos seguintes 
 ---
 
 
-
-
 ## Autores
 
 - [@Dazilio-Gabriel](https://github.com/Dazilio-Gabriel)
