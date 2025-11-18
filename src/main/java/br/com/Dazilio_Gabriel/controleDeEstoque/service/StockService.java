@@ -1,6 +1,5 @@
 package br.com.Dazilio_Gabriel.controleDeEstoque.service;
 
-
 import br.com.Dazilio_Gabriel.controleDeEstoque.model.MovementModel;
 import br.com.Dazilio_Gabriel.controleDeEstoque.model.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class StockService {
         this.mongoTemplate = mongoTemplate;
     }
 
-    //Produtos:
+    //  produtos
 
     public void inserirProdutos(ProductModel produto) {
         this.mongoTemplate.save(produto);
@@ -34,14 +33,12 @@ public class StockService {
         return this.mongoTemplate.findAll(ProductModel.class);
     }
 
-    public List<ProductModel>  contarProdutos() {
-        
-        return this.mongoTemplate.count( , ,ProductModel.class);
+    public long contarProdutos() {
+        return this.mongoTemplate.count(new Query(), ProductModel.class);
     }
 
     public void removerProdutos(String idProduto) {
         Query query = new Query(Criteria.where("id").is(idProduto));
-
         this.mongoTemplate.remove(query, ProductModel.class);
         System.out.println("produto removido: " + idProduto);
     }
@@ -58,12 +55,15 @@ public class StockService {
         System.out.println("produto atualizado: " + dadosNovos.getNome());
     }
 
+    public ProductModel buscarProdutoPorId(String id) {
+        return this.mongoTemplate.findById(id, ProductModel.class);
+    }
 
-    //movimentacoes:
+
+    //  movimentacoes
 
     @Transactional
     public void inserirMovimentacao(MovementModel mov) {
-
         this.mongoTemplate.save(mov);
         System.out.println("movimentacao registrada: " + mov.getTipo());
 
@@ -78,7 +78,6 @@ public class StockService {
         Update update = new Update().inc("estoqueAtual", quantidadeParaMudar);
 
         this.mongoTemplate.updateFirst(query, update, ProductModel.class);
-
         System.out.println("estoque do produto ID " + idDoProduto + " atualizado.");
     }
 
@@ -86,6 +85,17 @@ public class StockService {
         return this.mongoTemplate.findAll(MovementModel.class);
     }
 
+    public long contarMovimentacoes() {
+        return this.mongoTemplate.count(new Query(), MovementModel.class);
+    }
 
+    public long contarMovimentacoesPorProduto(String idDoProduto) {
+        Query query = new Query(Criteria.where("product").is(idDoProduto));
+        return this.mongoTemplate.count(query, MovementModel.class);
+    }
+
+    public MovementModel buscarMovimentacaoPorId(String id) {
+        return this.mongoTemplate.findById(id, MovementModel.class);
+    }
 
 }
