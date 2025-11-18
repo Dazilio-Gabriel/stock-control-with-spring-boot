@@ -137,16 +137,8 @@ Para executar este projeto em um ambiente Linux, você precisará dos seguintes 
 - Assim que o Spring Boot iniciar e conectar ao MongoDB Atlas, o menu principal será exibido diretamente no console. Utilize o teclado numérico para navegar nas opções.
 
 ---
-<<<<<<< HEAD
 
-
-=======
->>>>>>> main
 ## Autores
 
 - [@Dazilio-Gabriel](https://github.com/Dazilio-Gabriel)
 - [@Victor-Castro](https://github.com/Dazilio-Gabriel)
-<<<<<<< HEAD
-=======
-
->>>>>>> main
