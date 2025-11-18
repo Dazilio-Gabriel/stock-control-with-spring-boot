@@ -25,6 +25,8 @@ public class ControleDeEstoqueApplication implements CommandLineRunner {
         this.stockService = stockService;
     }
 
+    //teste para o github
+
     public static void main(String[] args) {
         SpringApplication.run(ControleDeEstoqueApplication.class, args);
     }
