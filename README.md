@@ -2,11 +2,9 @@
 
 # 🧮 Controle de Estoque - Versão Spring Boot + MongoDB
 
-Projeto desenvolvido em **Java (Spring Boot)** com integração ao **MongoDB**, simulando um sistema de controle de
-estoque moderno com API REST.  
-Esta versão é uma evolução do projeto anterior em console (com MySQL + JDBC), agora utilizando **frameworks
-profissionais**, como o **Spring Boot** e o **Spring Data MongoDB**, permitindo operações via **endpoints HTTP** e
-conexão automática com o banco **NoSQL** MongoDB.
+Projeto desenvolvido em **Java (Spring Boot)** com integração ao **MongoDB Atlas (Nuvem)**, simulando um sistema de controle de estoque com persistência de dados NoSQL.
+
+Esta versão é uma evolução do projeto anterior em console (com MySQL + JDBC), agora utilizando **frameworks profissionais**, como o **Spring Boot** e o **Spring Data MongoDB**. A aplicação oferece uma interface interativa via **Console (Terminal)**, permitindo gerenciamento robusto de dados com transações e agregações nativas.
 
 ---
 
@@ -26,13 +24,13 @@ conexão automática com o banco **NoSQL** MongoDB.
 
 ## 🚀 Objetivo do Projeto
 
-Implementar um sistema de **gerenciamento de produtos e movimentações** (entradas e saídas de estoque), desta vez com *
-*arquitetura baseada em API REST** e persistência no **MongoDB**.  
-O foco é demonstrar:
+Implementar um sistema de **gerenciamento de produtos e movimentações** (entradas e saídas de estoque) com persistência no **MongoDB**.
 
-- Modelagem de dados no formato **documento (NoSQL)**;
-- Integração entre aplicação **Java Spring Boot** e **MongoDB**;
-- Utilização de **Spring Data** para consultas, inserções e exclusões sem uso de SQL.
+O foco é demonstrar:
+- Modelagem de dados no formato **documento (NoSQL)** com `@Document`;
+- Integração entre aplicação **Java Spring Boot** e **MongoDB Atlas**;
+- Utilização de **Spring Data** para consultas, inserções e agregações sem uso de SQL;
+- Uso de **Transações** e atualizações atômicas para consistência.
 
 ---
 
