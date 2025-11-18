@@ -73,7 +73,8 @@ O sistema oferece as seguintes funcionalidades através de um menu interativo no
 | **Java 21**             | Linguagem principal                        |
 | **Spring Boot 3.5.7**   | Framework principal                        |
 | **Spring Data MongoDB** | Integração e persistência no banco MongoDB |
-| **MongoDB**             | Banco de dados NoSQL                       |
+| **MongoDB**             | Banco de dados Nao relacional              |
+| **MongoDB Atlhas**      | Banco de dados nçao relacional em nuvem    |
 | **Maven**               | Gerenciador de dependências                |
 | **Spring Web**          | Exposição de endpoints REST                |
 | **Gson**                | Serialização/deserialização de dados       |

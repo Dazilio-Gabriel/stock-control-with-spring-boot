@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import br.com.Dazilio_Gabriel.controleDeEstoque.service.StockService;
 import br.com.Dazilio_Gabriel.controleDeEstoque.model.ProductModel;
 import br.com.Dazilio_Gabriel.controleDeEstoque.model.MovementModel;
+import br.com.Dazilio_Gabriel.controleDeEstoque.model.MovementTypeReport;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -101,7 +102,16 @@ public class ControleDeEstoqueApplication implements CommandLineRunner {
                                 break;
                             case 2:
                                 System.out.println("\n--- RELATÓRIO: TOTAL POR TIPO ---");
-                                System.out.println("DESCULPE, ESTE RELATÓRIO (AGRUPAMENTO) AINDA NÃO FOI IMPLEMENTADO.");
+                                List<MovementTypeReport> relatorio = stockService.gerarRelatorioPorTipo();
+
+                                if (relatorio == null || relatorio.isEmpty()) {
+                                    System.out.println("Nenhum dado encontrado.");
+                                } else {
+                                    for (MovementTypeReport item : relatorio) {
+                                        System.out.println("Tipo: " + item.getTipo() + " | Total de Itens: " + item.getTotalQuantidade());
+                                    }
+                                }
+                                System.out.println("---------------------------------");
                                 break;
 
                             case 3:
