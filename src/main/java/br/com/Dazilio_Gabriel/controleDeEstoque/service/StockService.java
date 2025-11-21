@@ -25,7 +25,7 @@ public class StockService {
         this.mongoTemplate = mongoTemplate;
     }
 
-    //  produtos
+    //  metodos produtos
 
     public void inserirProdutos(ProductModel produto) {
         this.mongoTemplate.save(produto);
@@ -63,7 +63,7 @@ public class StockService {
     }
 
 
-    //  movimentacoes
+    //  metodos movimentacoes
 
     @Transactional
     public void inserirMovimentacao(MovementModel mov) {
