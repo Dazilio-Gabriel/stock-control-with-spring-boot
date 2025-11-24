@@ -1,8 +1,9 @@
+docs(readme): corrige formatação e adiciona instruções de uso
 # stock-control-with-spring-boot
 
 # 🧮 Controle de Estoque - Versão Spring Boot + MongoDB
 
-Projeto desenvolvido em **Java (Spring Boot)** com integração ao **MongoDB Atlas (Nuvem)**, simulando um sistema de controle de estoque com persistência de dados NoSQL.
+Projeto desenvolvido em **Java (Spring Boot)** com integração ao **MongoDB**, simulando um sistema de controle de estoque com persistência de dados NoSQL.
 
 Esta versão é uma evolução do projeto anterior em console (com MySQL + JDBC), agora utilizando **frameworks profissionais**, como o **Spring Boot** e o **Spring Data MongoDB**. A aplicação oferece uma interface interativa via **Console (Terminal)**, permitindo gerenciamento robusto de dados com transações e agregações nativas.
 
@@ -80,7 +81,6 @@ LINK:
 | **Spring Boot 3.5.7**   | Framework principal                        |
 | **Spring Data MongoDB** | Integração e persistência no banco MongoDB |
 | **MongoDB**             | Banco de dados Nao relacional              |
-| **MongoDB Atlhas**      | Banco de dados não relacional em nuvem     |
 | **Maven**               | Gerenciador de dependências                |
 | **Spring Web**          | Exposição de endpoints REST                |
 | **Gson**                | Serialização/deserialização de dados       |
@@ -101,7 +101,7 @@ Para executar este projeto em um ambiente Linux, você precisará dos seguintes 
   sudo apt update
   sudo apt install openjdk-21-jdk
 
-### 2. MongoDB (Cloud - Atlas)
+### 2. MongoDB (Cloud - Atlas)   *Incorreto (alterar em breve)* 
 - **Não é necessária instalação local:** Como o projeto utiliza o MongoDB Atlas (Database as a Service), você não precisa
 
 - **Requisito:** A máquina deve ter acesso à internet para conectar-se ao cluster na AWS.
