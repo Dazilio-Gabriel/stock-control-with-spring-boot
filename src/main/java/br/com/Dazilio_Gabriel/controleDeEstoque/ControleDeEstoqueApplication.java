@@ -26,8 +26,6 @@ public class ControleDeEstoqueApplication implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
-        System.setProperty("jdk.tls.client.protocols", "TLSv1.2");
-
         SpringApplication.run(ControleDeEstoqueApplication.class, args);
     }
 
