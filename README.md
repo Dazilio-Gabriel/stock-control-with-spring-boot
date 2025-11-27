@@ -67,9 +67,9 @@ O sistema oferece as seguintes funcionalidades através de um menu interativo no
   
 ---
 ## Video demonstrando a utilizacao do programa com suas funcionalidades:
--Aqui vou deixar o link do video gravado e postado como nao listado no YouTube mostrando todas as funcionalidades do sistema
+- Link do video demonstrativo do codigo.
 
-LINK:
+LINK:https://youtu.be/isTNPMxFECM
 
 ---
 
