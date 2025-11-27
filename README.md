@@ -75,38 +75,31 @@ LINK:
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Tecnologia              | Finalidade                                 |
-|-------------------------|--------------------------------------------|
-| **Java 21**             | Linguagem principal                        |
-| **Spring Boot 3.5.7**   | Framework principal                        |
+| Tecnologia | Finalidade |
+| :--- | :--- |
+| **Java 21** | Linguagem principal |
+| **Spring Boot 3.5.7** | Framework principal |
 | **Spring Data MongoDB** | Integração e persistência no banco MongoDB |
-| **MongoDB**             | Banco de dados Nao relacional              |
-| **Maven**               | Gerenciador de dependências                |
-| **Spring Web**          | Exposição de endpoints REST                |
-| **Gson**                | Serialização/deserialização de dados       |
-| **Intellij IDE**        | IDE utilizada para fazer o projeto         |
+| **MongoDB** | Banco de dados NoSQL (Local) |
+| **Maven** | Gerenciador de dependências |
+| **IntelliJ IDEA** | IDE utilizada para o desenvolvimento |
 
 ---
 
 ## 🐧 Configuração do Ambiente (Linux)
 
-Para executar este projeto em um ambiente Linux, você precisará dos seguintes componentes:
+Para executar este projeto em um ambiente Linux, você precisará dos seguintes componentes instalados localmente:
 
 ### 1. Java Development Kit (JDK)
-
-- **Verificação:** Abra o terminal e digite `java -version`. Você precisa de uma versão 17 ou superior (Recomendado JDK
-  21).
-- **Instalação (Debian/Ubuntu):**
+- **Verificação:** Digite `java -version`. Necessário versão 17 ou superior (Recomendado JDK 21).
+- **Instalação:**
   ```bash
   sudo apt update
   sudo apt install openjdk-21-jdk
 
-### 2. MongoDB (Cloud - Atlas)   *Incorreto (alterar em breve)* 
-- **Não é necessária instalação local:** Como o projeto utiliza o MongoDB Atlas (Database as a Service), você não precisa
-
-- **Requisito:** A máquina deve ter acesso à internet para conectar-se ao cluster na AWS.
-
 ### 3. Maven (Build Tool)
+### 3. Maven (Build Tool)
+
 - **Incluso no Projeto:** O projeto utiliza o Maven Wrapper (mvnw), então você não precisa instalar o Maven manualmente no
 - **sistema operacional.** O script baixará as dependências automaticamente.
 
