@@ -10,6 +10,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
 @ExtendWith(MockitoExtension.class)
 class ControleDeEstoqueApplicationTests {
 
@@ -19,5 +21,17 @@ class ControleDeEstoqueApplicationTests {
     @InjectMocks
     private StockService stockService;
 
-    
+    @Test
+    void deveRetornarProdutoQuandoIdExistir() {
+
+        String id = "15";
+        ProductModel produtoFalso = new ProductModel();
+        produtoFalso.setId(id);
+
+        Mockito.when(productRepository.findById(id))
+                .thenReturn(Optional.of(produtoFalso));
+
+    }
+
+
 }

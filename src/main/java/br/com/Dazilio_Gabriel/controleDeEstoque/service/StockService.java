@@ -14,6 +14,7 @@ import org.springframework.data.mongodb.core.aggregation.GroupOperation;
 import br.com.Dazilio_Gabriel.controleDeEstoque.model.MovementTypeReport;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StockService {
@@ -107,6 +108,14 @@ public class StockService {
         Aggregation aggregation = Aggregation.newAggregation(operation);
 
         return this.mongoTemplate.aggregate(aggregation, "movements", MovementTypeReport.class).getMappedResults();
+    }
+
+    //metodos para teste JUnit
+
+    public ProductModel findById(String id) {
+
+
+        return null;
     }
 
 }
