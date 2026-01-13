@@ -2,9 +2,11 @@ package br.com.Dazilio_Gabriel.controleDeEstoque.service;
 
 import br.com.Dazilio_Gabriel.controleDeEstoque.model.MovementModel;
 import br.com.Dazilio_Gabriel.controleDeEstoque.model.ProductModel;
+import br.com.Dazilio_Gabriel.controleDeEstoque.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -14,12 +16,12 @@ import org.springframework.data.mongodb.core.aggregation.GroupOperation;
 import br.com.Dazilio_Gabriel.controleDeEstoque.model.MovementTypeReport;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StockService {
 
     private final MongoTemplate mongoTemplate;
+    private ProductRepository productRepository;
 
     @Autowired
     public StockService(MongoTemplate mongoTemplate) {
@@ -111,11 +113,10 @@ public class StockService {
     }
 
     //metodos para teste JUnit
-
+    
     public ProductModel findById(String id) {
-
-
-        return null;
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Produto não encontrado para o id: " + id));
     }
 
 }
