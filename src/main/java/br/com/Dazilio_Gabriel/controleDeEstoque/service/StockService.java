@@ -21,11 +21,12 @@ import java.util.List;
 public class StockService {
 
     private final MongoTemplate mongoTemplate;
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
-    public StockService(MongoTemplate mongoTemplate) {
+    public StockService(MongoTemplate mongoTemplate, ProductRepository productRepository) {
         this.mongoTemplate = mongoTemplate;
+        this.productRepository = productRepository;
     }
 
     //  metodos produtos
