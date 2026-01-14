@@ -113,7 +113,7 @@ public class StockService {
     }
 
     //metodos para teste JUnit
-    
+
     public ProductModel findById(String id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Produto não encontrado para o id: " + id));

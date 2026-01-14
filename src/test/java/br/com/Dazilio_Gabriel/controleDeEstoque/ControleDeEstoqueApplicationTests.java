@@ -12,6 +12,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @ExtendWith(MockitoExtension.class)
 class ControleDeEstoqueApplicationTests {
 
@@ -28,10 +30,13 @@ class ControleDeEstoqueApplicationTests {
         ProductModel produtoFalso = new ProductModel();
         produtoFalso.setId(id);
 
+
         Mockito.when(productRepository.findById(id))
                 .thenReturn(Optional.of(produtoFalso));
 
+        produtoFalso = stockService.findById(produtoFalso.getId());
+
+        assertEquals(produtoFalso.getId() , id);
+
     }
-
-
 }
