@@ -120,4 +120,9 @@ public class StockService {
                 .orElseThrow(() -> new RuntimeException("Produto não encontrado para o id: " + id));
     }
 
+    public ProductModel findByNome(String nome) {
+        return productRepository.findByNome(nome)
+                .orElseThrow(() -> new RuntimeException("Produto nao encontrado para o nome: " + nome));
+    }
+
 }
