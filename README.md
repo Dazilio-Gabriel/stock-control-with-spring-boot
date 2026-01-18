@@ -1,11 +1,10 @@
-docs(readme): corrige formatação e adiciona instruções de uso
-# stock-control-with-spring-boot
+# 🧮 Controle de Estoque - Spring Boot + MongoDB
 
-# 🧮 Controle de Estoque - Versão Spring Boot + MongoDB
+Projeto desenvolvido em **Java com Spring Boot** e integração ao **MongoDB**, simulando um sistema de controle de
+estoque com persistência NoSQL, regras de negócio, relatórios e testes automatizados.
 
-Projeto desenvolvido em **Java (Spring Boot)** com integração ao **MongoDB**, simulando um sistema de controle de estoque com persistência de dados NoSQL.
-
-Esta versão é uma evolução do projeto anterior em console (com MySQL + JDBC), agora utilizando **frameworks profissionais**, como o **Spring Boot** e o **Spring Data MongoDB**. A aplicação oferece uma interface interativa via **Console (Terminal)**, permitindo gerenciamento robusto de dados com transações e agregações nativas.
+Esta aplicação é a evolução de uma versão anterior em console (MySQL + JDBC), agora utilizando **Spring Boot**, **Spring
+Data MongoDB**, **arquitetura em camadas** e **testes com JUnit e Mockito**.
 
 ---
 
@@ -16,122 +15,120 @@ Esta versão é uma evolução do projeto anterior em console (com MySQL + JDBC)
 
 ---
 
-## 👥 Integrantes do Grupo
+## 👥 Integrantes
 
 - Gabriel Dazilio Fanchiotti
-- Victor Castro
 
 ---
 
-## 🚀 Objetivo do Projeto
+## 🎯 Objetivo
 
-Implementar um sistema de **gerenciamento de produtos e movimentações** (entradas e saídas de estoque) com persistência no **MongoDB**.
+Implementar um sistema de **gerenciamento de produtos e movimentações (entrada e saída)** com:
 
-O foco é demonstrar:
-- Modelagem de dados no formato **documento (NoSQL)** com `@Document`;
-- Integração entre aplicação **Java Spring Boot** e **MongoDB Atlas**;
-- Utilização de **Spring Data** para consultas, inserções e agregações sem uso de SQL;
-- Uso de **Transações** e atualizações atômicas para consistência.
-
----
-
-## ✨ Funcionalidades Implementadas
-
-O sistema oferece as seguintes funcionalidades através de um menu interativo no console:
-
-- `📊 Relatórios:`
-    - **Listagem Geral:** Exibição de todas as movimentações com os dados do produto associado (resolução de referência
-      via `@DBRef`).
-    - **Agregação:** Relatório estatístico utilizando o framework nativo do MongoDB (`aggregation`) para somar totais
-      por tipo (ENTRADA/SAIDA).
-
-- `➕ Inserir Registro:`
-    - Cadastro de Produtos e Movimentações via console.
-    - **Lógica de Negócio:** Atualização automática e atômica do estoque (`$inc`) a cada nova movimentação.
-    - **Segurança:** Uso de `@Transactional` para garantir a consistência dos dados entre as coleções.
-    - Loop de repetição para inserções múltiplas.
-
-- `➖ Remover Registro:`
-    - Remoção de documentos pelo ID (MongoDB `_id`).
-    - **Integridade:** Verificação prévia que impede a exclusão de um Produto caso existam Movimentações associadas a
-      ele (Item 7.c.i do Edital).
-    - Confirmação de segurança antes de efetivar a exclusão.
-
-- `🔄 Atualizar Registro:`
-    - Busca e edição de documentos existentes nas coleções `products` e `movements`.
-    - Permite alterar nome, descrição e saldo de produtos, ou corrigir lançamentos de movimentações.
-
-- `🖥️ Interface (Console):`
-    - **Splash Screen:** Tela inicial dinâmica exibindo a contagem em tempo real de documentos nas coleções.
-    - Menu de navegação numérico com tratamento de erros de entrada.
-  
----
-## Video demonstrando a utilizacao do programa com suas funcionalidades:
-- Link do video demonstrativo do codigo.
-
-LINK:https://youtu.be/isTNPMxFECM
+- Persistência em **MongoDB**
+- Arquitetura em camadas (Controller, Service, Repository)
+- Regras de negócio com consistência transacional
+- Relatórios com **Aggregation Framework**
+- Testes unitários com **JUnit 5** e **Mockito**
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## ✨ Funcionalidades
 
-| Tecnologia | Finalidade |
-| :--- | :--- |
-| **Java 21** | Linguagem principal |
-| **Spring Boot 3.5.7** | Framework principal |
-| **Spring Data MongoDB** | Integração e persistência no banco MongoDB |
-| **MongoDB** | Banco de dados NoSQL (Local) |
-| **Maven** | Gerenciador de dependências |
-| **IntelliJ IDEA** | IDE utilizada para o desenvolvimento |
+### 📦 Produtos
+
+- Cadastro
+- Listagem
+- Atualização
+- Remoção com validação de integridade
+- Busca por **ID** e por **Nome**
+
+### 🔄 Movimentações
+
+- Registro de ENTRADA e SAÍDA
+- Atualização automática do estoque com `$inc`
+- Controle transacional com `@Transactional`
+
+### 📊 Relatórios
+
+- Total de movimentações por tipo (Aggregation)
+- Contagem de registros
+- Splash screen com dados do banco ao iniciar
+
+### 🧪 Testes
+
+- Testes unitários da camada Service
+- Uso de:
+    - `@Mock`
+    - `@InjectMocks`
+    - `Mockito.when()`
+    - `Optional`
+    - `assertThrows()`
+    - Padrão AAA (Arrange, Act, Assert)
 
 ---
 
-## 🐧 Configuração do Ambiente (Linux)
+## 🛠️ Tecnologias
 
-Para executar este projeto em um ambiente Linux, você precisará dos seguintes componentes instalados localmente:
-
-### 1. Java Development Kit (JDK)
-- **Verificação:** Digite `java -version`. Necessário versão 17 ou superior (Recomendado JDK 21).
-- **Instalação:**
-  ```bash
-  sudo apt update
-  sudo apt install openjdk-21-jdk
-
-### 3. Maven (Build Tool)
-### 3. Maven (Build Tool)
-
-- **Incluso no Projeto:** O projeto utiliza o Maven Wrapper (mvnw), então você não precisa instalar o Maven manualmente no
-- **sistema operacional.** O script baixará as dependências automaticamente.
-
-### 4. Código Fonte do Projeto
-- **Clone o Repositório:** Use git clone para baixar o código do GitHub para sua máquina Linux.
+| Tecnologia          | Uso          |
+|---------------------|--------------|
+| Java 21             | Linguagem    |
+| Spring Boot 3       | Framework    |
+| Spring Data MongoDB | Persistência |
+| MongoDB             | Banco NoSQL  |
+| JUnit 5             | Testes       |
+| Mockito             | Mocks        |
+| Maven               | Build        |
+| IntelliJ IDEA       | IDE          |
 
 ---
 
-## 🚀 Como Compilar e Executar o Projeto (Linux)
-- Siga estas etapas no terminal Linux, estando dentro do diretório raiz do projeto (ex: ~/DEV/stock-control-with-spring-boot):
+### 📂 Estrutura do Projeto
 
-### 1. Conceder Permissão de Execução: 
-- Antes de rodar pela primeira vez, garanta que o script do Maven tenha permissão de execução.
+- `controller` – Camada de apresentação (APIs / Console)
+- `service` – Regras de negócio e validações
+- `repository` – Acesso a dados (Spring Data MongoDB)
+- `model` – Entidades e documentos
+- `dto` – Objetos de transferência de dados
+- `tests` – Testes unitários com JUnit e Mockito
 
-```bash 
- chmod +x mvnw
-```
+---
 
-### 2. Compilar e Executar (Tudo em um comando):
-- Utilize o wrapper do Maven para baixar as dependências do Spring Boot, compilar o código e iniciar a aplicação.
+## 🚀 Como Executar o Projeto
+
+### 📋 Pré-requisitos
+
+Certifique-se de ter instalado em sua máquina:
+
+- **Java JDK 17+** (recomendado JDK 21)  
+  Verifique com: `java -version`
+- **MongoDB** (local) ou conta no **MongoDB Atlas**
+- **Git**
+- Terminal (Linux, macOS ou Windows com WSL)
+
+---
+
+### ▶️ Passo a Passo para Execução
+
+1. Clone o repositório:
 
 ```bash
- ./mvnw spring-boot:run
+  git clone https://github.com/Dazilio-Gabriel/stock-control-with-spring-boot
 ```
-- (**Nota** Na primeira execução, isso pode levar alguns minutos enquanto o Maven baixa as bibliotecas da internet)
 
-### 3. Interaja com o Sistema: 
-- Assim que o Spring Boot iniciar e conectar ao MongoDB Atlas, o menu principal será exibido diretamente no console. Utilize o teclado numérico para navegar nas opções.
+2. Acesse a pasta do projeto:
 
----
+```bash 
+  cd stock-control-with-spring-boot
+```
 
-## Autores
+3. Conceda permissão de execução ao Maven Wrapper (Linux/macOS):
 
-- [@Dazilio-Gabriel](https://github.com/Dazilio-Gabriel)
-- [@Victor-Castro](https://github.com/Dazilio-Gabriel)
+```bash 
+  chmod +x mvnw
+```
+4. Compile e execute a aplicação:
+
+```bash 
+  ./mvnw spring-boot:run
+```
